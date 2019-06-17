@@ -1,0 +1,8 @@
+library(ggplot2)
+library(dplyr)
+
+dat <- summarise(group_by(filter(NEI, fips == "24510"), year,type), Emissions =sum(Emissions))#es como un tapply pero con varios factors, simplemente OP
+
+qplot(year, Emissions, data = dat, facets = .~ type) + geom_smooth(method = "lm")
+dev.copy(png,"plot3.png")
+dev.off()
