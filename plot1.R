@@ -1,0 +1,7 @@
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+totalEmissions <- tapply(NEI$Emissions,as.factor(NEI$year), sum)
+years <- c(1999,2002,2005,2008)
+plot(years, totalEmissions)
+dev.copy(png,"plot1.png")
+dev.off()
