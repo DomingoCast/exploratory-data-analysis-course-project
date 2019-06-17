@@ -1,8 +1,8 @@
-direc <- "C:/Users/aquad/Desktop/Plan/Data/Exploratory analisis/exdata_data_NEI_data"
-setwd(direc)
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
+library(ggplot2)
+library(dplyr)
 
 merged <- merge(NEI, SCC, by = "SCC")
 Coal <- grep("Coal", merged$EI.Sector)
